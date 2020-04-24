@@ -13,7 +13,7 @@ def search_for_hashtags(consumer_key, consumer_secret, access_token, access_toke
     #initialize Tweepy API
     api = tweepy.API(auth) #api is also an object 
     
-    # """wrtie in df - then convert into csv file using to save function"""
+    # """wrtie in df - then convert into csv file using to save functions"""
 
     #get the name of the spreadsheet we will write to
     fname = '_'.join(re.findall(r"#(\w+)",hashtag_phrase))
