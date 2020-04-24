@@ -5,7 +5,7 @@ access_token_secret = r"sMxWgIbqhBPYftTDJkCAcIhMd9QQZI95MJDRbZJsjlZbD"
 
 def search_for_hashtags(consumer_key, consumer_secret, access_token, access_token_secret, hashtag_phrase):
     
-    #create authentication for accessing Twitter
+    #create authentication for accessing Twittjjer
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
     #auth - is an object here ,
     auth.set_access_token(access_token, access_token_secret)
