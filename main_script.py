@@ -57,12 +57,12 @@ OUTPUTS:
 def search_for_hashtags(consumer_key, consumer_secret, access_token, access_token_secret, hashtag_phrase):
     
     #create authentication for accessing Twitter
-    #auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
     #auth - is an object here ,
-    #auth.set_access_token(access_token, access_token_secret)
+    auth.set_access_token(access_token, access_token_secret)
 
     #initialize Tweepy API
-    #api = tweepy.API(auth) #api is also an object 
+    api = tweepy.API(auth) #api is also an object 
     
     """wrtie in df - then convert into csv file using to save function"""
     #get the name of the spreadsheet we will write to
@@ -106,10 +106,10 @@ access_secret = access_token_secret
 def get_tweets(username): 
 		
 		# Authorization to consumer key and consumer secret 
-		#auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
+		auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 
 		# Access to user's access key and access secret 
-		#auth.set_access_token(access_key, access_secret) 
+		auth.set_access_token(access_key, access_secret) 
 
 		# Calling api 
 		api = tweepy.API(auth) 
@@ -156,7 +156,7 @@ class StreamListener(tweepy.StreamListener):
 
 import pandas as pd 
 
-df = pd.read_csv(r"C:\Users\Vishwas Rawat\Desktop\Untitled Folder 1\shimla.csv")
+df = pd.read_csv(r"https://docs.google.com/spreadsheets/d/1WnUGaPDcfAmIIskoCsG7kvRT2nc3U8XjPsE6Xd4WJCs/edit?usp=sharing")
 
 
 # In[9]:
