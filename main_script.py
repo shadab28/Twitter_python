@@ -1,11 +1,9 @@
 import config
-import config
 
 from twython import Twython, TwythonError
 
 # create api as object by passing the necessary secret passwords
 api = Twython(config.consumer_key, config.consumer_secret, config.access_token, config.access_token_secret)
-
 import json
 import pandas as pd 
 import csv
@@ -21,13 +19,10 @@ from textblob import TextBlob
 import string
 import preprocessor as p
 
-
 # In[2]:
-
 
 from datetime import datetime
 import pytz
-
 
 tz_NY = pytz.timezone('America/New_York') 
 
@@ -39,19 +34,14 @@ tz_London = pytz.timezone('Europe/London')
 datetime_London = datetime.now(tz_London)
 print("London time:", datetime_London.strftime("%H:%M:%S"))
 
-
 # In[3]:
-
 
 """
 INPUTS:
     telling twitter that we are authorized to access this data
     hashtag_phrase: the combination of hashtags to search for
 OUTPUTS:
-    none, simply save the tweet info to a spreadsheet
-"""
-
-
+    none, simply save the tweet info to a spreadsheet"""
 
 #function 
 def search_for_hashtags(consumer_key, consumer_secret, access_token, access_token_secret, hashtag_phrase):
@@ -82,11 +72,7 @@ def search_for_hashtags(consumer_key, consumer_secret, access_token, access_toke
         for tweet in tweepy.Cursor(api.search , q=hashtag_phrase,tweet_mode='extended').items(1000):
             w.writerow([tweet.created_at, tweet.full_text.replace('\n',' ').encode('utf-8'), tweet.user.screen_name.encode('utf-8'), [e['text'].encode('utf-8') for e in tweet._json['entities']['hashtags']], tweet.user.followers_count, tweet.source, tweet.lang, tweet.retweet_count, tweet.user.location.encode('utf-8')])
 
-
 # In[7]:
-
-
-
     
 hashtag_phrase = input('Hashtag Phrase ')
 
